@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Guestbook</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- PORT -->
+    <base href="http://localhost:5000/" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="palkki">
+      <h1 class="otsikko">EPIC GUESTBOOK</h1>
+      </div>
+    <div class="topnav">
+      <a href="/" />Home</a>
+      <a href="/guestbook" />Guestbook</a>
+      <a href="/newentry" />New Entry</a>
+    </div>
+    
+      <table id="taulukko" class="table table-striped">
+        <thead>
+          
+          <tr id="t-header">
+           
+            <th>Username</th>
+            <th>Country</th>
+            <th>Date</th>
+            <th>Message</th>
+          </tr>
+        </thead>
+        <tbody>
+    <% for (let i = 0; i < data.length; i++) { %>
+     
+        <tr>
+        
+          <th><%=data[i].username %></th>
+          <th><%=data[i].country %></th>
+          <th><%= new Date(data[i].date).toLocaleString('en-US',
+            { weekday: 'long', day: 'numeric', month: 'long', year:
+            'numeric' }) %></th>
+          <th><%=data[i].message %></th>
+          
+        </tr>
+      
+    <% } %>
+        </tbody>
+    </table>
+    </div>
+  </body>
+</html>
